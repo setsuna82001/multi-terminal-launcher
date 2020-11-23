@@ -1,0 +1,52 @@
+{
+  "name": "multi-terminal-launcher",
+  "displayName": "Multi Terminal Launcher",
+  "publisher": "shaharl-cb4",
+  "icon": "resources/multiple-terminal-launcher.png",
+  "description": "An extension that allows multiple terminals setups configuration (with commands)",
+  "version": "1.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shaharl-cb4/multi-terminal-launcher.git"
+  },
+  "enableProposedApi": false,
+  "engines": {
+    "vscode": "^1.49.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:multiTerminalLauncher.runTerminals"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "multiTerminalLauncher.runTerminals",
+        "title": "Launch Terminal Setting"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint src --ext ts",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.49.0",
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.0.0",
+    "@types/node": "^14.0.27",
+    "eslint": "^7.6.0",
+    "@typescript-eslint/eslint-plugin": "^3.8.0",
+    "@typescript-eslint/parser": "^3.8.0",
+    "glob": "^7.1.6",
+    "mocha": "^8.1.3",
+    "typescript": "^4.0.2",
+    "vscode-test": "^1.4.0"
+  }
+}
