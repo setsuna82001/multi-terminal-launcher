@@ -6,7 +6,7 @@ const configTemplate_1 = require("./configTemplate");
 // get config
 // edit config
 class Config {
-    static getFile(path) {
+    static getFromFile(path) {
         return new Promise((resolve, reject) => {
             fs.readFile(path, (err, data) => {
                 if (err) {

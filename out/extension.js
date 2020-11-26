@@ -28,22 +28,22 @@ function activate(context) {
         if (folderPath) {
             const filePath = path.join(folderPath, ".vscode", "multi-terminals.json");
             //get config file
-            config_1.default.getFile(filePath)
+            config_1.default.getFromFile(filePath)
                 .then((config) => {
                 try {
                     let options = {
                         matchOnDescription: false,
-                        placeHolder: "Launch terminals in: " + folderPath,
+                        placeHolder: "Launch terminals in: " + folderPath
                     };
                     // if only one option available don't create dropdown
                     if (config.length === 1) {
-                        runTerminal(config[0]);
+                        runSetup(config[0]);
                     }
                     else {
                         // create dropdown to select config
-                        Promise.resolve(vscode.window.showQuickPick(config, options)).then((terminalConf) => {
-                            if (terminalConf) {
-                                runTerminal(terminalConf);
+                        Promise.resolve(vscode.window.showQuickPick(config, options)).then((setupConf) => {
+                            if (setupConf) {
+                                runSetup(setupConf);
                             }
                         });
                     }
@@ -56,7 +56,7 @@ function activate(context) {
                 .catch(() => {
                 vscode.window
                     .showErrorMessage("Missing multi-terminals.json config file", ...Object.values(NoFileOptions))
-                    .then((selection) => {
+                    .then(selection => {
                     if (selection === NoFileOptions.CREATE_FILE) {
                         config_1.default.createFile(filePath);
                     }
@@ -64,20 +64,20 @@ function activate(context) {
             });
         }
     }
-    function runTerminal(terminalConf) {
+    function runSetup(terminalConf) {
         // Display a message box to the user
         vscode.window.showInformationMessage(`Launching terminals for ${terminalConf.label}`);
         for (const command of terminalConf.commands) {
             const folderPath = vscode.workspace.rootPath;
             const { name: terminalName, cwd } = command;
             const path = cwd ? `${folderPath}\\${cwd}` : undefined;
-            const existTerminal = vscode.window.terminals.find((terminal) => terminal.name === terminalName);
+            const existTerminal = vscode.window.terminals.find(terminal => terminal.name === terminalName);
             if (existTerminal) {
                 existTerminal.dispose();
             }
             const terminal = vscode.window.createTerminal({
                 name: terminalName,
-                cwd: path,
+                cwd: path
             });
             terminal.sendText(command.script);
             if (command.main) {
