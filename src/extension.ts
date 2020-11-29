@@ -19,7 +19,7 @@ export interface ITerminalConfig {
 
 enum NoFileOptions {
   CREATE_FILE = "Create file",
-  NO_THANKS = " No thanks"
+  NO_THANKS = " No thanks",
 }
 
 // this method is called when your extension is activated
@@ -52,7 +52,7 @@ export function activate(context: vscode.ExtensionContext) {
           try {
             let options: vscode.QuickPickOptions = {
               matchOnDescription: false,
-              placeHolder: "Launch terminals in: " + folderPath
+              placeHolder: "Launch terminals in: " + folderPath,
             };
 
             // if only one option available don't create dropdown
@@ -80,7 +80,7 @@ export function activate(context: vscode.ExtensionContext) {
               "Missing multi-terminals.json config file",
               ...Object.values(NoFileOptions)
             )
-            .then(selection => {
+            .then((selection) => {
               if (selection === NoFileOptions.CREATE_FILE) {
                 Config.createFile(filePath);
               }
@@ -98,10 +98,11 @@ export function activate(context: vscode.ExtensionContext) {
     for (const command of terminalConf.commands) {
       const folderPath = vscode.workspace.rootPath;
       const { name: terminalName, cwd } = command;
-      const path = cwd ? `${folderPath}\\${cwd}` : undefined;
+      const filePath =
+        cwd && folderPath ? path.join(folderPath, cwd) : undefined;
 
       const existTerminal = vscode.window.terminals.find(
-        terminal => terminal.name === terminalName
+        (terminal) => terminal.name === terminalName
       );
 
       if (existTerminal) {
@@ -110,7 +111,7 @@ export function activate(context: vscode.ExtensionContext) {
 
       const terminal = vscode.window.createTerminal({
         name: terminalName,
-        cwd: path
+        cwd: filePath,
       });
       terminal.sendText(command.script);
 
