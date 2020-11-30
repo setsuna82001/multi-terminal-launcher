@@ -4,7 +4,7 @@
   "publisher": "shaharl-cb4",
   "icon": "resources/multiple-terminal-launcher.png",
   "description": "An extension that allows multiple terminals setups configuration (with commands)",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/shaharl-cb4/multi-terminal-launcher.git"
