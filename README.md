@@ -21,17 +21,23 @@ The extension is configured using a very easy to edit JSON (multi-terminals.json
         "name": "first terminal",
         "main": true, //<optional>
         "script": "script to run in terminal",
-        "cwd": "<optional> A path or Uri for the current working directory to be used for the terminal."
+        "cwd": "<optional> A path or Uri for the current working directory to be used for the terminal.",
+        "color": "<optional> A terminal icon color. Refer to the URL -> https://code.visualstudio.com/api/references/theme-color#integrated-terminal-colors"
+        "icon": "<optional> A terminal icon."
       },
       {
         "name": "second terminal",
         "script": "script to run in terminal",
-        "cwd": "<optional> A path or Uri for the current working directory to be used for the terminal."
+        "cwd": "<optional> A path or Uri for the current working directory to be used for the terminal.",
+        "color": "<optional> A terminal icon color. Refer to the URL -> https://code.visualstudio.com/api/references/theme-color#integrated-terminal-colors"
+        "icon": "<optional> A terminal icon."
       },
       {
         "name": "third terminal",
         "script": "script to run in terminal",
-        "cwd": "<optional> A path or Uri for the current working directory to be used for the terminal."
+        "cwd": "<optional> A path or Uri for the current working directory to be used for the terminal.",
+        "color": "<optional> A terminal icon color. Refer to the URL -> https://code.visualstudio.com/api/references/theme-color#integrated-terminal-colors"
+        "icon": "<optional> A terminal icon."
       }
     ]
   },
@@ -42,17 +48,23 @@ The extension is configured using a very easy to edit JSON (multi-terminals.json
         "name": "first terminal",
         "main": true, //<optional>
         "script": "script to run in terminal",
-        "cwd": "<optional> A path or Uri for the current working directory to be used for the terminal."
+        "cwd": "<optional> A path or Uri for the current working directory to be used for the terminal.",
+        "color": "<optional> A terminal icon color. Refer to the URL -> https://code.visualstudio.com/api/references/theme-color#integrated-terminal-colors"
+        "icon": "<optional> A terminal icon."
       },
       {
         "name": "second terminal",
         "script": "script to run in terminal",
-        "cwd": "<optional> A path or Uri for the current working directory to be used for the terminal."
+        "cwd": "<optional> A path or Uri for the current working directory to be used for the terminal.",
+        "color": "<optional> A terminal icon color. Refer to the URL -> https://code.visualstudio.com/api/references/theme-color#integrated-terminal-colors"
+        "icon": "<optional> A terminal icon."
       },
       {
         "name": "third terminal",
         "script": "script to run in terminal",
-        "cwd": "<optional> A path or Uri for the current working directory to be used for the terminal."
+        "cwd": "<optional> A path or Uri for the current working directory to be used for the terminal.",
+        "color": "<optional> A terminal icon color. Refer to the URL -> https://code.visualstudio.com/api/references/theme-color#integrated-terminal-colors"
+        "icon": "<optional> A terminal icon."
       }
     ]
   }
