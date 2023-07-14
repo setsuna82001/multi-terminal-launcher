@@ -75,10 +75,17 @@ function activate(context) {
             if (existTerminal) {
                 existTerminal.dispose();
             }
-            const terminal = vscode.window.createTerminal({
+            const terminalConf = {
                 name: terminalName,
                 cwd: filePath,
-            });
+            };
+            if (command?.color) {
+                terminalConf.color = new vscode.ThemeColor(command.color);
+            }
+            if (command?.icon) {
+                terminalConf.iconPath = new vscode.ThemeIcon(command.icon);
+            }
+            const terminal = vscode.window.createTerminal(terminalConf);
             terminal.sendText(command.script);
             if (command.main) {
                 terminal.show();
